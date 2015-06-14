@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F0C34101B2D782800113A86 /* GamePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0C340F1B2D782800113A86 /* GamePickerViewController.swift */; };
+		6F0C34121B2D85A600113A86 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6F0C34111B2D85A600113A86 /* README.md */; };
 		6F9077EE1B2D43130063DD84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9077ED1B2D43130063DD84 /* AppDelegate.swift */; };
 		6F9077F01B2D43130063DD84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9077EF1B2D43130063DD84 /* ViewController.swift */; };
 		6F9077F31B2D43130063DD84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F9077F11B2D43130063DD84 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		6F0C340F1B2D782800113A86 /* GamePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePickerViewController.swift; sourceTree = "<group>"; };
+		6F0C34111B2D85A600113A86 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6F9077E81B2D43130063DD84 /* Ratings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ratings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9077EC1B2D43130063DD84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F9077ED1B2D43130063DD84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				6F9077EA1B2D43130063DD84 /* Ratings */,
 				6F9078001B2D43130063DD84 /* RatingsTests */,
 				6F9077E91B2D43130063DD84 /* Products */,
+				6F0C34111B2D85A600113A86 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -340,6 +343,7 @@
 				6F90784B1B2D586F0063DD84 /* SampleData.swift in Sources */,
 				6F9078431B2D49390063DD84 /* Player.swift in Sources */,
 				6F9077F01B2D43130063DD84 /* ViewController.swift in Sources */,
+				6F0C34121B2D85A600113A86 /* README.md in Sources */,
 				6F9077EE1B2D43130063DD84 /* AppDelegate.swift in Sources */,
 				6F9078411B2D48AB0063DD84 /* PlayersViewController.swift in Sources */,
 			);
