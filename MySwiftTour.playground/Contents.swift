@@ -187,6 +187,35 @@ func makeIncrementr() -> (Int->Int) {
 var increment = makeIncrementr()
 print(increment(7))
 
+func hasAnyMatches(list:[Int], condition:Int -> Bool) -> Bool {
+    for item in list {
+        if condition(item) {
+            return true
+        }
+    }
+    return false
+}
+
+func lessThanTen(number:Int) -> Bool {
+    return number < 10
+}
+
+var numbers = [20, 19, 11, 12]
+print(hasAnyMatches(numbers, condition: lessThanTen))
+
+
+numbers.map({
+    (number:Int) -> Int in
+    let result = 3*number
+    return result
+})
+
+let mappedNumbers = numbers.map({number in 3*number})
+print(mappedNumbers)
+
+let sortedNumbers = numbers.sort{$0 > $1}
+print(sortedNumbers)
+
 
 
 
