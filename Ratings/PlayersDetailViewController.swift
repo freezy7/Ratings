@@ -17,12 +17,12 @@ class PlayersDetailViewController: UITableViewController {
     
     var player:Player!
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "SavePlayerDetail"){
-            player = Player(name: self.nameTextField.text, game: game, rating: 1)
+            player = Player(name: self.nameTextField.text!, game: game, rating: 1)
         }
         if (segue.identifier == "PickGame"){
-            if let gamePickerViewController = segue.destinationViewController as? GamePickerViewController{
+            if let gamePickerViewController = segue.destination as? GamePickerViewController{
                 gamePickerViewController.selectedGame = game
             }
         }
@@ -40,17 +40,17 @@ class PlayersDetailViewController: UITableViewController {
         detailLabel.text = game;
     }
     
-    required init!(coder aDecoder: NSCoder!) {
-        println("init PlayerDetailsViewController")
+    required init!(coder aDecoder: NSCoder) {
+        print("init PlayerDetailsViewController")
         super.init(coder: aDecoder)
     }
     
     deinit{
-        println("deinit PlayerDetailsViewController")
+        print("deinit PlayerDetailsViewController")
     }
     
-    @IBAction func selectedGame(segue:UIStoryboardSegue){
-        if let gamePickerViewController = segue.sourceViewController as? GamePickerViewController,selectedGame = gamePickerViewController.selectedGame{
+    @IBAction func selectedGame(_ segue:UIStoryboardSegue){
+        if let gamePickerViewController = segue.source as? GamePickerViewController,let selectedGame = gamePickerViewController.selectedGame{
             detailLabel.text = selectedGame
             game = selectedGame
         }
@@ -63,7 +63,7 @@ class PlayersDetailViewController: UITableViewController {
     
     // MARK: -Table view delegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.row == 0){
             nameTextField.becomeFirstResponder()
         }

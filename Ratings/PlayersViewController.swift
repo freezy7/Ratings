@@ -27,18 +27,18 @@ class PlayersViewController: UITableViewController {
         
     }
     
-    @IBAction func cancelToPlayersViewController(segue:UIStoryboardSegue){
+    @IBAction func cancelToPlayersViewController(_ segue:UIStoryboardSegue){
         
     }
-    @IBAction func savePlayerDetail(segue:UIStoryboardSegue){
-        if let playerDetailsViewController = segue.sourceViewController as? PlayersDetailViewController{
+    @IBAction func savePlayerDetail(_ segue:UIStoryboardSegue){
+        if let playerDetailsViewController = segue.source as? PlayersDetailViewController{
             
             // add the new player to the players array
             players.append(playerDetailsViewController.player)
             
             //update the tableView
-            let indexPath = NSIndexPath(forRow: players.count-1, inSection: 0)
-            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            let indexPath = IndexPath(row: players.count-1, section: 0)
+            tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
         
     }
@@ -50,21 +50,21 @@ class PlayersViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return players.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PlayerCell", forIndexPath: indexPath) as! PlayerCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCell", for: indexPath) as! PlayerCell
 
         // Configure the cell...
         let player = players[indexPath.row] as Player
@@ -74,7 +74,7 @@ class PlayersViewController: UITableViewController {
         return cell
     }
     
-    func imageForRating(rating:Int) ->UIImage?{
+    func imageForRating(_ rating:Int) ->UIImage?{
         switch rating{
         case 1:
             return UIImage(named: "1StarSmall")

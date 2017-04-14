@@ -30,15 +30,15 @@ class GamePickerViewController: UITableViewController {
             "Texas Hold'em Poker",
             "Tic-Tac-Toe"
         ]
-        if let game = selectedGame{
-            selectedGameIndex = find(games, game)!
+        if let game = selectedGame {
+            selectedGameIndex = games.index(of: game)
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "SaveSelectedGame"){
             if let cell = sender as? UITableViewCell{
-                let indexPath = tableView.indexPathForCell(cell)
+                let indexPath = tableView.indexPath(for: cell)
                 selectedGameIndex = indexPath?.row
                 if let index = selectedGameIndex{
                     selectedGame = games[index]
@@ -54,47 +54,47 @@ class GamePickerViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return games.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) 
         cell.textLabel?.text = games[indexPath.row]
         
         if(indexPath.row == selectedGameIndex){
-            cell.accessoryType = .Checkmark
+            cell.accessoryType = .checkmark
         }else{
-            cell.accessoryType = .None
+            cell.accessoryType = .none
         }
 
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
         //Other row is selected-need to deselect it
         if let index = selectedGameIndex{
-            let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
-            cell?.accessoryType = .None
+            let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0))
+            cell?.accessoryType = .none
         }
         
         selectedGameIndex = indexPath.row
         selectedGame = games[indexPath.row]
         
         //update the checkmark for the current row
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        cell?.accessoryType = .Checkmark
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .checkmark
     }
 
     /*
