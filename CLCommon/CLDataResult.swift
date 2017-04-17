@@ -15,13 +15,19 @@ class CLDataResult: NSObject, NSCoding {
     var msg: String?
     var data: Any?
     
-    init(dict: Dictionary<String, Any>) {
+    override init() {
+        //此处应该有个初始值
+        
+        super.init()
+    }
+    
+    convenience init(dict: Dictionary<String, Any>) {
+        self.init()
         //需要做检测
         self.code = dict["code"] as! Int
         self.success = (self.code == 1)
         self.msg = dict["msg"] as? String
         self.data = dict["data"]
-        super.init()
     }
 
     // NSCoding

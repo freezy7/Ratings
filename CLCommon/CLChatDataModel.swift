@@ -10,8 +10,8 @@ import UIKit
 
 class CLChatDataModel: CLDataModel {
     
-    func loadData() -> Any? {
-        var result:CLDataResult = <#value#>
-        
+    override func loadData() -> Any? {
+//        var result:CLDataResult = <#value#>
+        return nil
     }
 }
