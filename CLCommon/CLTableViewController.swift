@@ -37,6 +37,11 @@ class CLTableViewController: UIViewController, UITableViewDelegate,UITableViewDa
             self.dataSource.append(item)
             
         }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        CLDataService.getCommonDataResult()
     }
 
     override func didReceiveMemoryWarning() {
